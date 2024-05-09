@@ -80,6 +80,26 @@ class BST {
     }
     return currentNode;
   }
+
+  // Breadth First Search
+
+  BFS() {
+    let currentNode = this.root;
+    let queue = [];
+    let results = [];
+    queue.push(currentNode);
+
+    while(queue.length) {
+      currentNode = queue.shift();
+      results.push(currentNode.value);
+      if(currentNode.left) queue.push(currentNode.left);
+      if(currentNode.right) queue.push(currentNode.right);
+    }
+    return results;
+  }
+  //Depth First Search - Pre order function
+
+
 }
 
 let myTree = new BST();
@@ -92,3 +112,14 @@ myTree.insert(52);
 myTree.insert(82);
 myTree.contain(92);
 myTree.minValueNode(myTree.root.right);
+
+console.log(JSON.stringify(myTree));
+
+const result = myTree.BFS();
+
+console.log(result);
+
+
+ 
+
+
