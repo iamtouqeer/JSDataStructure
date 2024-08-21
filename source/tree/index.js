@@ -97,8 +97,43 @@ class BST {
     }
     return results;
   }
-  //Depth First Search - Pre order function
+  
+  //Depth First Search - PreOrder function
+  DFSPreOrder() {
+    let results = [];
+    function traverse(currentNode){
+      results.push(currentNode.value);
+      if(currentNode.left) traverse(currentNode.left);
+      if(currentNode.right) traverse(currentNode.right);
+    }
+    traverse(this.root);
+    return results;
+  }
 
+   //Depth First Search - PreOrder function
+   DFSPostOrder() {
+    let results = [];
+    function traverse(currentNode){
+      if(currentNode.left) traverse(currentNode.left);
+      if(currentNode.right) traverse(currentNode.right);
+      results.push(currentNode.value);
+    }
+    traverse(this.root);
+    return results;
+  }
+
+   //Depth First Search - InOrder function
+   DFSInOrder() {
+    let results = [];
+    function traverse(currentNode){
+      if(currentNode.left) traverse(currentNode.left);
+      results.push(currentNode.value);
+      if(currentNode.right) traverse(currentNode.right);
+     
+    }
+    traverse(this.root);
+    return results;
+  }
 
 }
 
@@ -111,13 +146,22 @@ myTree.insert(27);
 myTree.insert(52);
 myTree.insert(82);
 myTree.contain(92);
-myTree.minValueNode(myTree.root.right);
+const minVaue = myTree.minValueNode(myTree.root.left);
 
 console.log(JSON.stringify(myTree));
 
-const result = myTree.BFS();
+const resultBFS = myTree.BFS();
+const resultDFSPreOrder = myTree.DFSPreOrder();
+const resultDFSPostOrder = myTree.DFSPostOrder();
+const resultDFSInOrder = myTree.DFSInOrder();
 
-console.log(result);
+console.log({
+  resultBFS,
+  resultDFSPreOrder,
+  resultDFSPostOrder,
+  resultDFSInOrder,
+  minVaue
+});
 
 
  
