@@ -18,6 +18,19 @@ function calculator(num1, num2, operator) {
     default:
       throw new Error('Invalid operator');
   }
+
+  // if (operator == '+') {
+  //   result = num1 + num2;
+  // } else if (operator == '-') {
+  //   result = num1 - num2;
+  // } else if (operator == '*') {
+  //   result = num1 * num2;
+  // } else if (operator == '/') {
+  //   result = num1 / num2;
+  // } else {
+  //   throw new Error('Invalid operator');
+  // }
+
   return result;
 }
 
